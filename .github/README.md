@@ -42,16 +42,18 @@ mkdir -p p2pool-data
 Run the container:
 
 ```bash
-docker run --rm \
+docker run --rm -it \
   -v "$(pwd)/p2pool-data:/data" \
   -p 3333:3333 \
   -p 37889:37889 \
   ghcr.io/lanjelin/p2pool-zero \
-  --host 127.0.0.1 \
-  --rpc-port 18089 \
-  --wallet 44...YOUR_MONERO_ADDRESS...abc \
-  --stratum 0.0.0.0:3333 \
-  --p2p 0.0.0.0:37889
+  --host "192.168.0.55" \
+  --rpc-port "18089" \
+  --zmq-port "18083" \
+  --wallet "44...YOUR_MONERO_ADDRESS...abc" \
+  --stratum "0.0.0.0:3333" \
+  --p2p "0.0.0.0:37889" \
+  --data-dir "/data"
 ```
 
 This setup:
@@ -73,17 +75,21 @@ services:
   p2pool:
     image: ghcr.io/lanjelin/p2pool-zero
     user: "1000:1000"
+    tty: true
+    stdin_open: true
     volumes:
       - ./p2pool-data:/data
     ports:
       - "3333:3333"
       - "37889:37889"
     command: >
-      --host 127.0.0.1
-      --rpc-port 18089
-      --wallet 44...YOUR_MONERO_ADDRESS...abc
-      --stratum 0.0.0.0:3333
-      --p2p 0.0.0.0:37889
+      --host "192.168.0.55"
+      --rpc-port "18089"
+      --zmq-port "18083"
+      --wallet "44...YOUR_MONERO_ADDRESS...abc"
+      --stratum "0.0.0.0:3333"
+      --p2p "0.0.0.0:37889"
+      --data-dir "/data"
 ```
 
 To launch:
