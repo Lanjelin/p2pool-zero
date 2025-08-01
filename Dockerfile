@@ -22,7 +22,7 @@ RUN wget "$p2pool_url/releases/download/$p2pool_tag/p2pool-$p2pool_tag-linux-x64
 FROM scratch
 LABEL org.opencontainers.image.title="p2pool-zero" \
       org.opencontainers.image.description="A rootless, distroless, from-scratch Docker image for running p2pool." \
-      org.opencontainers.image.url="https://ghcr.io/Lanjelin/p2pool-zero" \
+      org.opencontainers.image.url="https://ghcr.io/lanjelin/p2pool-zero" \
       org.opencontainers.image.source="https://github.com/Lanjelin/p2pool-zero" \
       org.opencontainers.image.documentation="https://github.com/Lanjelin/p2pool-zero" \
       org.opencontainers.image.version="v4.9" \
