@@ -3,7 +3,7 @@
 A secure, zero-footprint Docker image for running [P2Pool](https://github.com/SChernykh/p2pool) — fully rootless, distroless, and built entirely `FROM scratch` for maximum isolation and minimal attack surface.
 
 Hosted image:
-📦 [`ghcr.io/lanjelin/p2pool-zero`](https://ghcr.io/lanjelin/p2pool-zero)
+📦 [`ghcr.io/Lanjelin/p2pool-zero`](https://ghcr.io/Lanjelin/p2pool-zero)
 
 ---
 
@@ -46,7 +46,7 @@ docker run --rm \
   -v "$(pwd)/p2pool-data:/data" \
   -p 3333:3333 \
   -p 37889:37889 \
-  ghcr.io/lanjelin/p2pool-zero \
+  ghcr.io/Lanjelin/p2pool-zero \
   --host 127.0.0.1 \
   --rpc-port 18089 \
   --wallet 44...YOUR_MONERO_ADDRESS...abc \
@@ -71,7 +71,7 @@ You can also run it with Compose:
 ```yaml
 services:
   p2pool:
-    image: ghcr.io/lanjelin/p2pool-zero
+    image: ghcr.io/Lanjelin/p2pool-zero
     user: "1000:1000"
     volumes:
       - ./p2pool-data:/data
@@ -128,7 +128,7 @@ No shell, no package manager, no unused files.
 ## 🧪 Building the Image Locally
 
 ```bash
-git clone https://github.com/lanjelin/p2pool-zero.git
+git clone https://github.com/Lanjelin/p2pool-zero.git
 cd p2pool-zero
 docker build -t p2pool-zero .
 ```
@@ -153,8 +153,8 @@ This Docker image does not modify the binary and complies with upstream licensin
 
 ## 👤 Maintainer
 
-**lanjelin**
-Image hosted at [ghcr.io/lanjelin/p2pool-zero](https://ghcr.io/lanjelin/p2pool-zero)
+**Lanjelin**
+Image hosted at [ghcr.io/Lanjelin/p2pool-zero](https://ghcr.io/Lanjelin/p2pool-zero)
 
 ---
 
