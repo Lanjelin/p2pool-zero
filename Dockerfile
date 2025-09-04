@@ -4,7 +4,7 @@ ARG BUILD_TAG=v4.9
 FROM debian:bullseye-slim AS builder-p2pool
 
 ARG BUILD_TAG
-ARG p2pool_url=https://github.com/SChernykh/p2pool
+ARG P2POOL_URL=https://github.com/SChernykh/p2pool
 
 RUN apt update && \
     apt install -y --no-install-recommends wget gpg dirmngr gnupg ca-certificates && \
@@ -12,8 +12,8 @@ RUN apt update && \
 
 WORKDIR /build
 
-RUN wget "$p2pool_url/releases/download/$BUILD_TAG/p2pool-$p2pool_tag-linux-x64.tar.gz" && \
-    wget "$p2pool_url/releases/download/$BUILD_TAG/sha256sums.txt.asc" && \
+RUN wget "$P2POOL_URL/releases/download/$BUILD_TAG/p2pool-$BUILD_TAG-linux-x64.tar.gz" && \
+    wget "$P2POOL_URL/releases/download/$BUILD_TAG/sha256sums.txt.asc" && \
     gpg --keyserver keyserver.ubuntu.com --recv-keys C47F82B54DA87ADF && \
     gpg --output sha256sums.txt --decrypt sha256sums.txt.asc || { echo "Signature verification or decryption failed"; exit 1; } && \
     expected=$(grep -A2 "Name: p2pool-$BUILD_TAG-linux-x64.tar.gz" sha256sums.txt | grep SHA256 | awk '{print $2}') && \
